@@ -33,14 +33,8 @@ jobs:
     
       # Clones Firebase Deploy Info
       - name: Clone Juler-Hosting
-        uses: actions/checkout@master
-        with:
-          repository: Juler-Sites/juler-hosting
-          path: .
-          
-      # Get to Host Dir
-      - name: Move to Host
         run: |
+          git clone ${{ secrets.HOSTING_REPO }} .
           ls -al
       
       # Installs Firebase
