@@ -1,10 +1,10 @@
-name: Firebase Deploy
+name: Firebase Deploy (Beta)
 
 on:
   push:
-    branches: [ release/production ]
+    branches: [ development ]
   pull_request:
-    branches: [ release/production ]
+    branches: [ development ]
   workflow_dispatch:
 
 jobs:
@@ -41,4 +41,4 @@ jobs:
 
       # Deploys Firebase
       - name: Deploy to Firebase
-        run: firebase deploy --only hosting:techvault --non-interactive --token ${{ secrets.FIREBASE_TOKEN }}
+        run: firebase deploy --only hosting:techvault-beta --non-interactive --token ${{ secrets.FIREBASE_TOKEN }}
