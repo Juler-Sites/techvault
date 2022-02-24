@@ -30,14 +30,13 @@ jobs:
           mkdir techvault
           shopt -s extglob
           mv !(techvault) techvault
-          ls
-          ls techvault
     
       # Clones Firebase Deploy Info
       - name: Clone Juler-Hosting
         uses: actions/checkout@master
         with:
           repository: Juler-Sites/juler-hosting
+          
       
       # Installs Firebase
       - name: Install Firebase
@@ -45,7 +44,9 @@ jobs:
         
       # Access Firebase
       - name: Access Firebase
-        run: firebase use juler-sites --token ${{ secrets.FIREBASE_TOKEN }}
+        run: |
+          firebase use juler-sites --token ${{ secrets.FIREBASE_TOKEN }}
+          ls
 
       # Deploys Firebase
       - name: Deploy to Firebase
