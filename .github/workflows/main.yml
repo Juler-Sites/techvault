@@ -37,7 +37,6 @@ jobs:
         with:
           repository: Juler-Sites/juler-hosting
           path: .
-          ref: firebase-data
           
       # Get to Host Dir
       - name: Move to Host
