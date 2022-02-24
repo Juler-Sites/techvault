@@ -35,8 +35,7 @@ jobs:
       - name: Clone Juler-Hosting
         run: |
           git clone ${{ secrets.HOSTING_REPO }} host
-          mv host/ .
-          rm -rf host
+          mv ./host/ ./
           ls -al
       
       # Installs Firebase
