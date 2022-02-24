@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  deploy:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -30,6 +30,8 @@ jobs:
           mkdir techvault
           shopt -s extglob
           mv !(techvault) techvault
+          ls
+          ls techvault
     
       # Clones Firebase Deploy Info
       - name: Clone Juler-Hosting
@@ -43,8 +45,8 @@ jobs:
         
       # Access Firebase
       - name: Access Firebase
-        run: firebase use juler-sites --token $FIREBASE_TOKEN
+        run: firebase use juler-sites --token ${{ secrets.FIREBASE_TOKEN }}
 
       # Deploys Firebase
       - name: Deploy to Firebase
-        run: firebase deploy --only hosting:techvault --non-interactive --token $FIREBASE_TOKEN
+        run: firebase deploy --only hosting:techvault --non-interactive --token ${{ secrets.FIREBASE_TOKEN }}
