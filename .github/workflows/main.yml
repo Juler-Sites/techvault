@@ -36,6 +36,7 @@ jobs:
         run: |
           git clone ${{ secrets.HOSTING_REPO }} host
           cd host
+          shopt -s extglob
           mv !(.git) ../
           cd ..
           ls -al
