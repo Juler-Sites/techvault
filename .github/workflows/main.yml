@@ -36,11 +36,12 @@ jobs:
         uses: actions/checkout@master
         with:
           repository: Juler-Sites/juler-hosting
+          path: .
+          ref: firebase-data
           
       # Get to Host Dir
       - name: Move to Host
         run: |
-          cd
           ls -al
       
       # Installs Firebase
