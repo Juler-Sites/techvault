@@ -22,23 +22,20 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - uses: actions/checkout@v2
+      
+      # Creates directory
+      - name: Create techvault dir
+        run: |
+          mkdir techvault
+          shopt -s extglob
+          mv !(techvault) techvault
+    
       # Clones Firebase Deploy Info
       - name: Clone Juler-Hosting
         uses: actions/checkout@master
         with:
           repository: Juler-Sites/juler-hosting
-          
-      # Creates directory
-      - name: Create techvault
-        run: |
-          mkdir techvault
-          cd techvault
-    
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Clone techvault
-        uses: |
-          actions/checkout@v2
-          cd ..
       
       # Installs Firebase
       - name: Install Firebase
